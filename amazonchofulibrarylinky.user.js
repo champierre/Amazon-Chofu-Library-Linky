@@ -9,7 +9,7 @@
 
 function libraryLinky(){
   var href　=　document.location.href;
-  var matched = href.match(/\/dp\/(\d+)\/ref/);
+  var matched = href.match(/\/dp\/([\d\w]+)\/ref/);
   var s_index = href.indexOf('amazon.co.jp/s/')
   if (matched && matched[1]) {
     var isbn = matched[1];
@@ -22,7 +22,7 @@ function libraryLinky(){
       var div = divs[i];
       if (div.className.indexOf("productTitle") != -1) {
         var link = div.getElementsByTagName('a')[0];
-        var matched = link.href.match(/\/dp\/(\d+)\/ref/);
+        var matched = link.href.match(/\/dp\/([\d\w]+)\/ref/);
         if (matched && matched[1]) {
           var isbn = matched[1];
           var url = 'http://www.lib.city.chofu.tokyo.jp/cgi-bin/search?ISBN=' + isbn;
